@@ -16,7 +16,8 @@ const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 const allowedOrigins = [
   'http://localhost:3001',
   'http://127.0.0.1:3001',
-  'http://172.20.30.248:3001', 
+  'http://172.20.30.248:3001',
+  'https://cinnami.utdprojects.cloud'
 ];
 
 // Helmet primero para proteger los headers HTTP
