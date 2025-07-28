@@ -276,7 +276,7 @@ const forgotPassword = async (req, res) => {
         user.resetPasswordExpires = new Date(Date.now() + 60 * 60 * 1000); // 1 hora
         await user.save();
         const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3001";
-        const resetLink = `${CLIENT_URL}/reset-password?token=${token}`;
+        const resetLink = `${CLIENT_URL}/#/reset-password?token=${token}`; // Notar el #/
         await (0, sendEmail_1.sendResetEmail)(user.email, resetLink);
         return res.json({ message: "Se envió un correo con el enlace para restablecer la contraseña." });
     }
