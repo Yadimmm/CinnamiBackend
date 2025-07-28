@@ -337,7 +337,8 @@ export const forgotPassword = async (req: Request, res: Response) => {
 
         await user.save();
 
-        const resetLink = `http://localhost:3001/reset-password?token=${token}`;
+        const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3001";
+        const resetLink = `${CLIENT_URL}/reset-password?token=${token}`;
         await sendResetEmail(user.email, resetLink);
 
         return res.json({ message: "Se envió un correo con el enlace para restablecer la contraseña." });
