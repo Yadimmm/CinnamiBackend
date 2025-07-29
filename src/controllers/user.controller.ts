@@ -338,7 +338,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
         await user.save();
 
         const CLIENT_URL = process.env.CLIENT_URL || "https://cinnami.utdprojects.cloud";
-        const resetLink = `${CLIENT_URL}/#/reset-password?token=${token}`;
+        const resetLink = `${CLIENT_URL}/reset-password?token=${token}`;
         await sendResetEmail(user.email, resetLink);
 
 
